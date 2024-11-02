@@ -1,0 +1,139 @@
+/* Estilo Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('img/6.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Círculo no canto superior esquerdo */
+.circulo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: url('img/Natalia.png') no-repeat center center;
+    background-size: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+header {
+    background-color: rgba(255, 111, 97, 0.8);
+    color: white;
+    padding: 30px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Painel que contém todos os painéis de opções */
+.painel-opcoes-container {
+    display: flex; /* Usa flexbox para o layout */
+    justify-content: center; /* Centraliza os paineis de opções */
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo leve e transparente */
+    padding: 20px;
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin: 20px 0; /* Margem acima e abaixo do painel */
+}
+
+/* Estilo para cada opção (já existente, mas agora dentro do novo painel) */
+.opcao {
+    width: 200px; /* Largura fixa para as opções */
+    height: 150px; /* Altura fixa para as opções */
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo das opções */
+    border-radius: 10px;
+    margin: 10px; /* Espaçamento entre as opções */
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative; /* Para posicionar a imagem de fundo */
+    overflow: hidden; /* Para esconder o que ultrapassar */
+    background-size: cover; /* Faz a imagem cobrir todo o painel */
+    cursor: pointer; /* Indica que é clicável */
+}
+/* Estilo para as opções com fundo específico */
+.opcao.jogo {
+    background-image: url('img/8.png'); /* Caminho correto da imagem para o jogo */
+    background-size: cover; /* Faz a imagem cobrir todo o painel */
+    background-position: center; /* Centraliza a imagem */
+}
+
+.opcao.contagem-regressiva {
+    background-image: url('img/c3.png'); /* Caminho correto da imagem para a contagem regressiva */
+    background-size: cover; /* Faz a imagem cobrir todo o painel */
+    background-position: center; /* Centraliza a imagem */
+}
+
+.opcao.linha-do-tempo {
+    background-image: url('img/3.png'); /* Caminho correto da imagem para a linha do tempo */
+    background-size: cover; /* Faz a imagem cobrir todo o painel */
+    background-position: center; /* Centraliza a imagem */
+}
+
+.opcao.cartoes {
+    background-image: url('img/6.png'); /* Caminho correto da imagem para os cartões */
+    background-size: cover; /* Faz a imagem cobrir todo o painel */
+    background-position: center; /* Centraliza a imagem */
+}
+
+.opcao.mensagem-dia {
+    background-image: url('img/4.png'); /* Caminho correto da imagem para a mensagem do dia */
+    background-size: cover; /* Faz a imagem cobrir todo o painel */
+    background-position: center; /* Centraliza a imagem */
+}
+
+
+/* Título da opção */
+.opcao h2 {
+    position: relative; /* Para manter o texto acima da imagem */
+    z-index: 1; /* Texto acima da imagem */
+    color: #333;
+}
+
+/* Seções com conteúdo oculto inicialmente */
+section {
+    width: 80%;
+    max-width: 800px;
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 8px;
+    color: white;
+    display: none; /* Oculto inicialmente */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Classe para exibir a seção */
+.conteudo-visivel {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .painel-transparente {
+        flex-direction: column; /* Muda para coluna em telas menores */
+        align-items: center; /* Centraliza as opções verticalmente */
+    }
+
+    .opcao {
+        width: 90%; /* Largura adaptável em telas menores */
+    }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniversário Especial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="circulo"></div> <!-- Círculo com imagem de fundo -->
+
+    <header>
+        <h1>Feliz Aniversário!</h1>
+        <p>Uma linha do tempo especial para recordar os melhores momentos.</p>
+    </header>
+
+    <!-- Painel Transparente para as Opções -->
+    <div class="painel-transparente">
+        <!-- Painel que contém todos os painéis de opções -->
+        <div class="painel-opcoes-container">
+            <div class="opcao painel-1" onclick="mostrarSecao('linha-do-tempo');">
+                <h2>Linha do Tempo</h2>
+            </div>
+            <div class="opcao painel-2" onclick="mostrarSecao('cartoes-notificacao');">
+                <h2>Cartões</h2>
+            </div>
+            <div class="opcao painel-3" onclick="mostrarSecao('mensagem-dia');">
+                <h2>Mensagem do Dia</h2>
+            </div>
+            <div class="opcao painel-4" onclick="mostrarSecao('jogo');">
+                <h2>Jogo</h2>
+            </div>
+            <div class="opcao painel-5" onclick="mostrarSecao('contagem-regressiva');">
+                <h2>Contagem Regressiva</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seções com conteúdo oculto inicialmente -->
+    <section id="linha-do-tempo">
+        <h2>Linha do Tempo</h2>
+        <div class="painel-memoria" id="memoria-1">
+            <div class="texto-memoria">Primeira lembrança especial...</div>
+        </div>
+        <div class="painel-memoria" id="memoria-2">
+            <div class="texto-memoria">Segunda lembrança inesquecível...</div>
+        </div>
+    </section>
+
+    <section id="cartoes-notificacao">
+        <h2>Cartões de Notificação</h2>
+        <div class="cartao">Mensagem especial: Aproveite seu dia!</div>
+        <div class="cartao">Lembre-se: Você é muito especial!</div>
+    </section>
+
+    <section id="mensagem-dia">
+        <h2>Mensagem do Dia</h2>
+        <div class="mensagem">Que seu dia seja repleto de alegria e realizações!</div>
+    </section>
+
+    <section id="jogo" style="display: none;">
+        <h2>Jogo</h2>
+        <div class="mensagem">Aqui você pode jogar algo divertido!</div>
+        <!-- Adicione aqui a lógica do jogo -->
+    </section>
+
+    <section id="contagem-regressiva" style="display: none;">
+        <h2>Contagem Regressiva</h2>
+        <div class="mensagem">Contagem regressiva para um momento especial!</div>
+        <!-- Adicione aqui a lógica para a contagem regressiva -->
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
