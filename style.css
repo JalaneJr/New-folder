@@ -21,8 +21,8 @@ body {
     position: absolute;
     top: 20px;
     left: 20px;
-    width: 100px; /* Tamanho reduzido para mobile */
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     background: url('img/Natalia.png') no-repeat center center;
     background-size: cover;
@@ -33,8 +33,6 @@ body {
 header {
     background-color: rgba(113, 228, 248, 0.8);
     color: white;
-    width: 100px; /* Tamanho reduzido para mobile */
-    height: 120px;
     padding: 20px;
     width: 100%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -43,19 +41,20 @@ header {
 /* Painel de Opções */
 .painel-opcoes-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     margin: 20px 0;
+    overflow-x: auto; /* Permite rolagem horizontal em telas menores */
+    white-space: nowrap; /* Garante que os painéis fiquem em uma única linha */
 }
 
 /* Estilo para cada opção com imagem de fundo */
 .opcao {
-    width: 200px;
-    height: 180px;
+    min-width: 180px;
+    height: 160px;
     border-radius: 10px;
     margin: 10px;
     padding: 20px;
@@ -72,10 +71,10 @@ header {
 }
 
 .painel-1 { background-image: url('img/4.png'); }
-.painel-2 { background-image: url('img/1.png'); }
+.painel-2 { background-image: url('img/2.png'); }
 .painel-3 { background-image: url('img/3.png'); }
-.painel-4 { background-image: url('img/7.png'); }
-.painel-5 { background-image: url('img/c3.png'); }
+.painel-4 { background-image: url('img/5.png'); }
+.painel-5 { background-image: url('img/c2.png'); }
 
 .opcao h2 {
     font-size: 1.2em;
@@ -105,30 +104,16 @@ section {
     to { opacity: 1; }
 }
 
-/* Responsividade para telas menores */
+/* Ajustes de Responsividade */
 @media (max-width: 768px) {
-    .painel-opcoes-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .opcao {
-        width: 90%;
-        margin: 10px 0;
+        min-width: 150px; /* Reduz a largura mínima para caber mais opções em telas menores */
+        height: 140px;
+        padding: 15px;
     }
 }
 
 @media (max-width: 480px) {
-    header {
-        padding: 15px;
-    }
-
-    .opcao {
-        width: 100%;
-        height: 160px;
-        padding: 15px;
-    }
-
     .opcao h2 {
         font-size: 1em;
     }
