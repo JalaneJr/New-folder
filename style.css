@@ -26,91 +26,67 @@ body {
     border-radius: 50%;
     background: url('img/Natalia.png') no-repeat center center;
     background-size: cover;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgb(248, 248, 248);
 }
 
 /* Header */
 header {
-    background-color: rgba(255, 111, 97, 0.8);
+    background-color: rgba(113, 228, 248, 0.8);
     color: white;
     padding: 30px;
     width: 100%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Painel que contém todos os painéis de opções */
+/* Painel com Opções */
 .painel-opcoes-container {
-    display: flex; /* Usa flexbox para o layout */
-    justify-content: center; /* Centraliza os paineis de opções */
-    background-color: rgba(255, 255, 255, 0.8); /* Fundo leve e transparente */
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    margin: 20px 0; /* Margem acima e abaixo do painel */
-}
-
-/* Estilo para cada opção (já existente, mas agora dentro do novo painel) */
-.opcao {
-    width: 200px; /* Largura fixa para as opções */
-    height: 150px; /* Altura fixa para as opções */
-    background-color: rgba(255, 255, 255, 0.9); /* Fundo das opções */
     border-radius: 10px;
-    margin: 10px; /* Espaçamento entre as opções */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+}
+
+/* Estilo para cada painel */
+.opcao {
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+    margin: 10px;
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    position: relative; /* Para posicionar a imagem de fundo */
-    overflow: hidden; /* Para esconder o que ultrapassar */
-    background-size: cover; /* Faz a imagem cobrir todo o painel */
-    cursor: pointer; /* Indica que é clicável */
-}
-/* Estilo para as opções com fundo específico */
-.opcao.jogo {
-    background-image: url('img/8.png'); /* Caminho correto da imagem para o jogo */
-    background-size: cover; /* Faz a imagem cobrir todo o painel */
-    background-position: center; /* Centraliza a imagem */
+    cursor: pointer;
+    position: relative;
+    background-size: cover;
+    background-position: center;
 }
 
-.opcao.contagem-regressiva {
-    background-image: url('img/c3.png'); /* Caminho correto da imagem para a contagem regressiva */
-    background-size: cover; /* Faz a imagem cobrir todo o painel */
-    background-position: center; /* Centraliza a imagem */
-}
+/* Estilos específicos para os paineis */
+.painel-1 { background-image: url('img/3.png'); }
+.painel-2 { background-image: url('img/6.png'); }
+.painel-3 { background-image: url('img/4.png'); }
+.painel-4 { background-image: url('img/8.png'); }
+.painel-5 { background-image: url('img/c3.png'); }
 
-.opcao.linha-do-tempo {
-    background-image: url('img/3.png'); /* Caminho correto da imagem para a linha do tempo */
-    background-size: cover; /* Faz a imagem cobrir todo o painel */
-    background-position: center; /* Centraliza a imagem */
-}
-
-.opcao.cartoes {
-    background-image: url('img/6.png'); /* Caminho correto da imagem para os cartões */
-    background-size: cover; /* Faz a imagem cobrir todo o painel */
-    background-position: center; /* Centraliza a imagem */
-}
-
-.opcao.mensagem-dia {
-    background-image: url('img/4.png'); /* Caminho correto da imagem para a mensagem do dia */
-    background-size: cover; /* Faz a imagem cobrir todo o painel */
-    background-position: center; /* Centraliza a imagem */
-}
-
-
-/* Título da opção */
+/* Título do painel */
 .opcao h2 {
-    position: relative; /* Para manter o texto acima da imagem */
-    z-index: 1; /* Texto acima da imagem */
-    color: #333;
+    color: #000000fa;
+    font-size: 1.5em;
+    position: absolute;
+    z-index: 1;
 }
 
-/* Seções com conteúdo oculto inicialmente */
+/* Seções */
 section {
     width: 80%;
     max-width: 800px;
     padding: 30px;
     margin: 20px 0;
     border-radius: 8px;
-    color: white;
-    display: none; /* Oculto inicialmente */
+    color: rgb(8, 0, 0);
+    display: none;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -128,12 +104,12 @@ section {
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .painel-transparente {
-        flex-direction: column; /* Muda para coluna em telas menores */
-        align-items: center; /* Centraliza as opções verticalmente */
+    .painel-opcoes-container {
+        flex-direction: column;
+        align-items: center;
     }
 
     .opcao {
-        width: 90%; /* Largura adaptável em telas menores */
+        width: 100%;
     }
 }
