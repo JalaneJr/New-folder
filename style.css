@@ -26,7 +26,7 @@ body {
     border-radius: 50%;
     background: url('img/Natalia.png') no-repeat center center;
     background-size: cover;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(1, 224, 31, 0.459);
 }
 
 /* Header */
@@ -37,28 +37,35 @@ header {
     width: 100%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
-
-/* Painel de Opções */
-.painel-opcoes-container {
-    display: flex;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
+/* Painel transparente */
+.painel-transparente {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.6);
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     margin: 20px 0;
-    overflow-x: auto; /* Permite rolagem horizontal em telas menores */
-    white-space: nowrap; /* Garante que os painéis fiquem em uma única linha */
 }
 
-/* Estilo para cada opção com imagem de fundo */
+/* Estilos principais para o contêiner de opções */
+.painel-opcoes-wrapper {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+}
+
+.painel-opcoes-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
 .opcao {
     min-width: 180px;
     height: 160px;
     border-radius: 10px;
-    margin: 10px;
     padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
     background-size: cover;
@@ -68,6 +75,13 @@ header {
     align-items: center;
     justify-content: center;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de zoom */
+}
+
+.opcao:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .painel-1 { background-image: url('img/4.png'); }
@@ -97,6 +111,42 @@ section {
     display: block;
     animation: fadeIn 0.5s ease-in-out;
 }
+/* Estilo para a seção de cartões */
+.cartao {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para a imagem do cartão */
+.cartao-imagem {
+    width: 100px; /* Tamanho do quadrado */
+    height: 100px;
+    margin-right: 15px;
+    object-fit: cover; /* Garante que a imagem se ajuste ao quadrado */
+    border-radius: 8px;
+}
+
+/* Estilo para o texto do cartão */
+.cartao-texto {
+    flex: 1;
+}
+
+.cartao-texto h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.cartao-texto p {
+    margin: 5px 0 0;
+    color: #555;
+}
+
+
 
 /* Animações */
 @keyframes fadeIn {
@@ -122,4 +172,15 @@ section {
         width: 60px;
         height: 60px;
     }
+}/* Efeito de carrossel apenas para dispositivos móveis */
+@media (max-width: 768px) {
+    .painel-opcoes-wrapper {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory; /* Habilita o alinhamento de deslize */
+    }
+    
+    .opcao {
+        scroll-snap-align: center; /* Alinha cada painel ao centro ao deslizar */
+    }
 }
+

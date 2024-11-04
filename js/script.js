@@ -16,3 +16,8 @@ function mostrarSecao(id) {
         console.error(`Seção com ID "${id}" não encontrada.`);
     }
 }
+function slidePainel(direction) {
+    const container = document.querySelector('.painel-opcoes-wrapper');
+    const scrollAmount = 200; // Ajuste a distância do deslize
+    container.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+}
