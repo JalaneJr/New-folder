@@ -154,33 +154,66 @@ section {
     to { opacity: 1; }
 }
 
-/* Ajustes de Responsividade */
+
+/* Estilos específicos para dispositivos móveis */
 @media (max-width: 768px) {
+    .painel-transparente {
+        padding: 5px;
+        margin: 10px 0;
+    }
+
+    .painel-opcoes-container {
+        gap: 8px;
+    }
+
     .opcao {
-        min-width: 150px; /* Reduz a largura mínima para caber mais opções em telas menores */
-        height: 140px;
-        padding: 15px;
+        min-width: 120px;
+        height: 100px;
+        font-size: 0.9rem;
+        border-radius: 6px;
+    }
+
+    /* Deslize em forma de carrossel */
+    .painel-opcoes-wrapper {
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .opcao {
+        scroll-snap-align: center;
+    }
+}
+
+header h1 {
+    font-size: 2.5rem; /* Tamanho do título padrão */
+    color: #333; /* Cor do título */
+    margin: 0; /* Remove a margem padrão */
+}
+
+header p {
+    font-size: 1.2rem; /* Tamanho do texto padrão do parágrafo */
+    color: #666; /* Cor do texto */
+    margin: 10px 0 0; /* Espaçamento acima do parágrafo */
+}
+
+/* Ajustes específicos para dispositivos móveis */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem; /* Reduz o tamanho do título em telas pequenas */
+    }
+    
+    header p {
+        font-size: 1rem; /* Reduz o tamanho do parágrafo em telas pequenas */
     }
 }
 
 @media (max-width: 480px) {
-    .opcao h2 {
-        font-size: 1em;
-    }
-
-    .circulo {
-        width: 60px;
-        height: 60px;
-    }
-}/* Efeito de carrossel apenas para dispositivos móveis */
-@media (max-width: 768px) {
-    .painel-opcoes-wrapper {
-        overflow-x: auto;
-        scroll-snap-type: x mandatory; /* Habilita o alinhamento de deslize */
+    header h1 {
+        font-size: 1.5rem; /* Reduz mais o título em telas muito pequenas */
     }
     
-    .opcao {
-        scroll-snap-align: center; /* Alinha cada painel ao centro ao deslizar */
+    header p {
+        font-size: 0.9rem; /* Reduz mais o parágrafo em telas muito pequenas */
     }
 }
 
