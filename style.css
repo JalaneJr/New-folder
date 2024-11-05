@@ -36,7 +36,22 @@ header {
     padding: 20px;
     width: 100%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-top: 120px; /* Garantir que o texto não sobreponha o círculo */
 }
+
+/* Estilo do título e parágrafo no header */
+header h1 {
+    font-size: 2rem; /* Tamanho ajustado para o header */
+    color: #333;
+    margin: 0;
+}
+
+header p {
+    font-size: 1rem; /* Tamanho ajustado para o parágrafo */
+    color: #666;
+    margin-top: 10px;
+}
+
 /* Painel transparente */
 .painel-transparente {
     padding: 15px;
@@ -48,11 +63,16 @@ header {
 
 /* Estilos principais para o contêiner de opções */
 .painel-opcoes-wrapper {
-    padding: 10px;
+    padding: 10px 15px;  /* Adicionando padding para evitar que o conteúdo fique colado nas bordas */
     background-color: rgba(255, 255, 255, 0);
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     margin: 20px 0;
+    display: flex;
+    flex-wrap: nowrap;  /* Impede quebra de linha */
+    gap: 10px;  /* Espaço entre os itens */
+    justify-content: center;  /* Alinha as opções no centro */
+    overflow-x: hidden;  /* Sem rolagem horizontal */
 }
 
 .painel-opcoes-container {
@@ -62,10 +82,10 @@ header {
 }
 
 .opcao {
-    min-width: 180px;
-    height: 160px;
+    min-width: 90px;  /* Ajustando para uma largura menor */
+    height: 80px;     /* Ajustando para uma altura menor */
     border-radius: 10px;
-    padding: 20px;
+    padding: 10px;     /* Ajustando o padding para um tamanho mais compacto */
     position: relative;
     overflow: hidden;
     background-size: cover;
@@ -88,10 +108,118 @@ header {
 .painel-2 { background-image: url('img/2.png'); }
 .painel-3 { background-image: url('img/3.png'); }
 .painel-4 { background-image: url('img/5.png'); }
-.painel-5 { background-image: url('img/c2.png'); }
 
 .opcao h2 {
-    font-size: 1.2em;
+    font-size: 0.9em; /* Tamanho do texto menor */
+    margin: 0;  /* Remover margem para o título */
+}
+
+/* Estilos da Linha do Tempo */
+.linha-do-tempo-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.linha-do-tempo-evento {
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Alternando as posições dos eventos para o efeito Zig-Zag */
+.linha-do-tempo-evento:nth-child(odd) {
+    flex-direction: row-reverse;
+    animation: fadeInRight 1s forwards;
+}
+
+.linha-do-tempo-evento:nth-child(even) {
+    flex-direction: row;
+    animation: fadeInLeft 1s forwards;
+}
+
+/* Imagem do evento */
+.evento-imagem {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.evento-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Descrição do evento */
+.evento-descricao {
+    max-width: 300px;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.evento-descricao .data {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.evento-descricao .descricao {
+    color: #555;
+}
+
+/* Linha ou caminho entre os eventos */
+.linha-do-tempo-wrapper::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: #3498db;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+/* Efeitos de Fade-In para os eventos */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animar o desbloqueio de cada evento */
+.linha-do-tempo-evento.aberto {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Seções com conteúdo */
@@ -111,6 +239,7 @@ section {
     display: block;
     animation: fadeIn 0.5s ease-in-out;
 }
+
 /* Estilo para a seção de cartões */
 .cartao {
     display: flex;
@@ -143,10 +272,7 @@ section {
 
 .cartao-texto p {
     margin: 5px 0 0;
-    color: #555;
 }
-
-
 
 /* Animações */
 @keyframes fadeIn {
@@ -154,66 +280,41 @@ section {
     to { opacity: 1; }
 }
 
-
 /* Estilos específicos para dispositivos móveis */
 @media (max-width: 768px) {
-    .painel-transparente {
-        padding: 5px;
-        margin: 10px 0;
-    }
-
-    .painel-opcoes-container {
-        gap: 8px;
-    }
-
-    .opcao {
-        min-width: 120px;
-        height: 100px;
-        font-size: 0.9rem;
-        border-radius: 6px;
-    }
-
-    /* Deslize em forma de carrossel */
+    /* Ajustes no painel de opções */
     .painel-opcoes-wrapper {
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
+        gap: 8px; /* Menor espaçamento entre as opções */
     }
 
     .opcao {
-        scroll-snap-align: center;
+        min-width: 85px;  /* Diminuir mais o tamanho das opções */
+        height: 75px;     /* Diminuir mais a altura das opções */
+        font-size: 0.8rem; /* Ajuste do tamanho da fonte */
     }
-}
 
-header h1 {
-    font-size: 2.5rem; /* Tamanho do título padrão */
-    color: #333; /* Cor do título */
-    margin: 0; /* Remove a margem padrão */
-}
-
-header p {
-    font-size: 1.2rem; /* Tamanho do texto padrão do parágrafo */
-    color: #666; /* Cor do texto */
-    margin: 10px 0 0; /* Espaçamento acima do parágrafo */
-}
-
-/* Ajustes específicos para dispositivos móveis */
-@media (max-width: 768px) {
+    /* Ajustes no texto do header */
     header h1 {
-        font-size: 1.8rem; /* Reduz o tamanho do título em telas pequenas */
+        font-size: 1.6rem; /* Diminuir o tamanho do título */
     }
-    
+
     header p {
-        font-size: 1rem; /* Reduz o tamanho do parágrafo em telas pequenas */
+        font-size: 0.9rem; /* Diminuir o tamanho do parágrafo */
     }
 }
 
 @media (max-width: 480px) {
-    header h1 {
-        font-size: 1.5rem; /* Reduz mais o título em telas muito pequenas */
+    .opcao {
+        min-width: 75px;  /* Mais compacta em telas menores */
+        height: 70px;     /* Mais compacta em telas menores */
+        font-size: 0.7rem; /* Fontes menores */
     }
-    
+
+    header h1 {
+        font-size: 1.4rem; /* Tamanho ainda menor do título */
+    }
+
     header p {
-        font-size: 0.9rem; /* Reduz mais o parágrafo em telas muito pequenas */
+        font-size: 0.8rem; /* Tamanho ainda menor do parágrafo */
     }
 }
-

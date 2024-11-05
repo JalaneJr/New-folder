@@ -9,7 +9,6 @@
     <script src="js/cartoes.js"></script>
     <script src="js/mensagem-dia.js"></script>
     <script src="js/jogo.js"></script>
-    <script src="js/contagem-regressiva.js"></script>
     <script src="js/script.js"></script>
 </head>
 <body>
@@ -24,35 +23,50 @@
         <div class="painel-opcoes-wrapper">
             <div class="painel-opcoes-container">
                 <div class="opcao painel-1" onclick="mostrarLinhaDoTempo();">
-                    <h2>Linha do Tempo</h2>
+                    <h2>Linha Tempo</h2>
                 </div>
                 <div class="opcao painel-2" onclick="mostrarCartoes();">
                     <h2>Cartões</h2>
                 </div>
                 <div class="opcao painel-3" onclick="mostrarMensagemDia();">
-                    <h2>Mensagem do Dia</h2>
+                    <h2>Mensagens</h2>
                 </div>
                 <div class="opcao painel-4" onclick="mostrarMusica();">
                     <h2>Musicas</h2>
                 </div>
-                <div class="opcao painel-5" onclick="mostrarContagemRegressiva();">
-                    <h2>Contagem Regressiva</h2>
-                </div>
             </div>
         </div>
     </div>
-    
-    
+
     <!-- Seções com conteúdo oculto inicialmente -->
     <section id="linha-do-tempo">
-        <h2>Linha do Tempo</h2>
-        <div class="painel-memoria" id="memoria-1">
-            <div class="texto-memoria">Primeira lembrança especial...</div>
+    <h2>Linha do Tempo</h2>
+    <div class="linha-do-tempo-wrapper">
+        <div class="linha-do-tempo-evento" id="evento-1">
+            <div class="evento-imagem">
+                <img src="img/1.png" alt="Evento 1">
+            </div>
+            <div class="evento-descricao">
+                <p class="data">01/01/2000</p>
+                <p class="descricao">Primeira lembrança...</p>
+            </div>
         </div>
-        <div class="painel-memoria" id="memoria-2">
-            <div class="texto-memoria">Segunda lembrança inesquecível...</div>
+
+        <!-- Repetir o mesmo código para os 22 eventos -->
+        <!-- O próximo evento seria o evento-2, evento-3 até o evento-22 -->
+
+        <div class="linha-do-tempo-evento" id="evento-22">
+            <div class="evento-imagem">
+                <img src="img/2.png" alt="Evento 22">
+            </div>
+            <div class="evento-descricao">
+                <p class="data">01/01/2022</p>
+                <p class="descricao">Evento final com uma surpresa!</p>
+                <button onclick="mostrarVideo()">Ver Vídeo</button>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="cartoes-notificacao">
         <h2>Cartões de Notificação</h2>
@@ -68,11 +82,6 @@
     <section id="musica">
         <h2>Musicas</h2>
         <p>Escute as suas musicas favoritas!</p>
-    </section>
-
-    <section id="contagem-regressiva">
-        <h2>Contagem Regressiva</h2>
-        <p>A contagem regressiva começou!</p>
     </section>
 </body>
 </html>
