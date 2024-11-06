@@ -12,7 +12,7 @@
     <script src="js/script.js"></script>
 </head>
 <body>
-    <div class="circulo"></div> <!-- Círculo com imagem de fundo -->
+    <div class="circulo"></div> <!-- Círculo com imagem de fundo -->  
 
     <header>
         <h1>Feliz Aniversário!</h1>
@@ -23,7 +23,7 @@
         <div class="painel-opcoes-wrapper">
             <div class="painel-opcoes-container">
                 <div class="opcao painel-1" onclick="mostrarLinhaDoTempo();">
-                    <h2>Linha Tempo</h2>
+                    <h2>Linha do Tempo</h2>
                 </div>
                 <div class="opcao painel-2" onclick="mostrarCartoes();">
                     <h2>Cartões</h2>
@@ -38,35 +38,44 @@
         </div>
     </div>
 
-    <!-- Seções com conteúdo oculto inicialmente -->
-    <section id="linha-do-tempo">
-    <h2>Linha do Tempo</h2>
-    <div class="linha-do-tempo-wrapper">
-        <div class="linha-do-tempo-evento" id="evento-1">
-            <div class="evento-imagem">
-                <img src="img/1.png" alt="Evento 1">
-            </div>
-            <div class="evento-descricao">
-                <p class="data">01/01/2000</p>
-                <p class="descricao">Primeira lembrança...</p>
-            </div>
-        </div>
-
-        <!-- Repetir o mesmo código para os 22 eventos -->
-        <!-- O próximo evento seria o evento-2, evento-3 até o evento-22 -->
-
-        <div class="linha-do-tempo-evento" id="evento-22">
-            <div class="evento-imagem">
-                <img src="img/2.png" alt="Evento 22">
-            </div>
-            <div class="evento-descricao">
-                <p class="data">01/01/2022</p>
-                <p class="descricao">Evento final com uma surpresa!</p>
-                <button onclick="mostrarVideo()">Ver Vídeo</button>
-            </div>
-        </div>
+    <div id="linha-do-tempo" class="linha-do-tempo">
+        <div id="linha-do-tempo-wrapper"></div>
+        <button id="botao-proximo" onclick="proximoEvento()">Próximo Evento</button>
     </div>
-</section>
+       
+<!-- Modal para exibir detalhes do evento -->
+<div id="modal-evento" class="modal">
+    <div class="modal-conteudo">
+        <span class="fechar" onclick="fecharEvento()">&times;</span>
+        <h2 id="modal-titulo">Detalhes do Evento</h2>
+        <div id="modal-imagem-container">
+            <img id="modal-imagem" src="" alt="Imagem do Evento">
+        </div>
+        <p id="modal-data"></p>
+        <p id="modal-descricao"></p>
+        <button id="botao-proximo-modal" onclick="proximoEventoModal()">Próximo</button>
+    </div>
+</div>
+       
+ <!-- Modal para o Vídeo -->
+<div id="modal-video" class="modal">
+    <div class="modal-content">
+        <!-- Botão de fechar o modal -->
+        <span class="close-button" onclick="fecharModal()">×</span>
+ 
+        <!-- Vídeo -->
+        <video id="video-player" controls width="100%">
+            <source id="video-source" src="" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+
+        <!-- Botão de fechar o vídeo dentro do modal -->
+        <button onclick="fecharModal()">Fechar Vídeo</button>
+    </div>
+</div>
+
+
+
 
     <section id="cartoes-notificacao">
         <h2>Cartões de Notificação</h2>
